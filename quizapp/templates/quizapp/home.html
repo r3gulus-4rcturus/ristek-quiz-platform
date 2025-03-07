@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <h1>Selamat Datang di Ristek Quiz App!</h1>
+
+
+    {% if tryout_list %}
+        <h3> List tryout yang ada: </h3>
+        {% for i in tryout_list %}
+            <h5> {{tryout_list.name}}</h5>
+        {% endfor %}
+    {% else %}
+        <h3> Tidak ada tryout yang tersedia. </h3>
+    {% endif %}
+
+    <a href="{% url 'create_quiz' %}" type="button" > Buat Tryout Baru </a>
+    
+
+{% endblock %}
