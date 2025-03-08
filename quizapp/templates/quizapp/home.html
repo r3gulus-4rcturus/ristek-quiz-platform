@@ -8,9 +8,11 @@
 
     {% if tryout_list %}
         <h3> List tryout yang ada: </h3>
-        {% for i in tryout_list %}
-            <h5> {{i.name}}</h5>
-        {% endfor %}
+        <ul>
+            {% for tryout in tryout_list %}
+                <li> <a href="{% url 'view_quiz' tryout.id %}">{{tryout.name}}</a></li>
+            {% endfor %}
+        </ul>
     {% else %}
         <h3> Tidak ada tryout yang tersedia. </h3>
     {% endif %}

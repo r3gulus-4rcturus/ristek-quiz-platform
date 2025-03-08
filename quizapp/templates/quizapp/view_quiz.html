@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <p> Nama: {{ tryout_object.name }} </p>
+    <p> Subject: {{ tryout_object.subject }} </p>
+    <p> Skor Maksimum: {{ tryout_object.maximum_score }} </p>
+    <a href="{% url 'update_quiz' tryout_object.id %}" type="button" > Update Tryout </a>
+    <br>
+    <a href="{% url 'home'  %}" type="button" > Kembali ke Menu Utama </a>
+
+{% endblock %}

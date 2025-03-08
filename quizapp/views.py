@@ -22,7 +22,7 @@ class ContactView(View):
         return render(request, 'quizapp/contact.html')
     
 # View untuk membuat tryout baru
-class CreateView(View):
+class CreateQuiz(View):
     template_url = 'quizapp/create_quiz.html'
     success_url = reverse_lazy('home')
 
@@ -41,13 +41,25 @@ class CreateView(View):
         # jika tidak, minta user untuk mengisi kembali formnya 
             ctx = {'form' : form}
             return render(request, self.template_url, ctx)
+        
+# View untuk melihat detail tryout yang sudah ada
+class ViewQuiz(View):
+    model = Tryout
+    def get(self, request, pk):
+        tryout_object = get_object_or_404(self.model, pk=pk)
+        ctx = {'tryout_object' : tryout_object}
+        return render(request, 'quizapp/view_quiz.html',ctx)
 
 # View untuk mengupdate tryout yang sudah ada
-class UpdateView(View):
+class UpdateQuiz(View):
     def get(self, request):
+        # ambil semua object tryout yang ada
+        tryout_list = Tryout.objects.all()
+        # pass ke render machine 
+        ctx = {'tryout_list': tryout_list}
         return render(request, 'quizapp/update_quiz.html')
 
 # View untuk mendelete tryout yang sudah ada
-class DeleteView(View):
+class DeleteQuiz(View):
     def get(self, request):
         return render(request, 'quizapp/delete_quiz.html')

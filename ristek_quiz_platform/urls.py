@@ -23,7 +23,8 @@ urlpatterns = [
     path('', views.MainView.as_view(), name="home"),
     path('about', views.AboutView.as_view(), name="about"),
     path('contact', views.ContactView.as_view(), name="contact"),
-    path('create', views.CreateView.as_view(), name="create_quiz"),
-    path('update/<int:pk>', views.UpdateView.as_view(), name="update_quiz"),
-    path('delete/<int:pk>', views.DeleteView.as_view(), name="delete_quiz")
+    path('create', views.CreateQuiz.as_view(), name="create_quiz"),
+    path('view/<int:pk>', views.ViewQuiz.as_view(), name="view_quiz"),
+    path('update/<int:pk>', views.UpdateQuiz.as_view(), name="update_quiz"),
+    path('delete/<int:pk>', views.DeleteQuiz.as_view(), name="delete_quiz")
 ]
