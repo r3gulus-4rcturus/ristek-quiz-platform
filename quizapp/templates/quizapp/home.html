@@ -9,7 +9,7 @@
     {% if tryout_list %}
         <h3> List tryout yang ada: </h3>
         {% for i in tryout_list %}
-            <h5> {{tryout_list.name}}</h5>
+            <h5> {{i.name}}</h5>
         {% endfor %}
     {% else %}
         <h3> Tidak ada tryout yang tersedia. </h3>
