@@ -52,12 +52,29 @@ class ViewQuiz(View):
 
 # View untuk mengupdate tryout yang sudah ada
 class UpdateQuiz(View):
-    def get(self, request):
-        # ambil semua object tryout yang ada
-        tryout_list = Tryout.objects.all()
-        # pass ke render machine 
-        ctx = {'tryout_list': tryout_list}
-        return render(request, 'quizapp/update_quiz.html')
+    model = Tryout
+    template_url = 'quizapp/update_quiz.html'
+
+    def get(self, request, pk):
+        # ambil object dari class Tryout dengan pk tertentu
+        tryout_object = get_object_or_404(self.model, pk=pk)
+        # buat form & "auto fill" sesuai dengan data object yg sudah disimpan 
+        form = MakeTryout(instance=tryout_object)
+        ctx = {'form' : form, 'tryout_object' : tryout_object}
+        return render(request, self.template_url, ctx)
+    
+    def post(self, request, pk):
+        tryout_object = get_object_or_404(self.model, pk=pk)
+        form = MakeTryout(request.POST, instance=tryout_object)
+        # jika form diisi dengan benar, save ke object Tryout lalu redirect ke home
+        if form.is_valid():
+            newTryout = form.save()
+            success_url = reverse_lazy('view_quiz', kwargs={'pk': pk})
+            return redirect(success_url)
+        else:
+        # jika tidak, minta user untuk mengisi kembali formnya 
+            ctx = {'form' : form, 'tryout_object' : tryout_object}
+            return render(request, self.template_url, ctx)
 
 # View untuk mendelete tryout yang sudah ada
 class DeleteQuiz(View):

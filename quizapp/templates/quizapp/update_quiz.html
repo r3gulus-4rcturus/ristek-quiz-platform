@@ -3,6 +3,13 @@
 
 {% block content %}
 
-<!-- TODO: Bikin template saat user ingin mengupdate quiz -->
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+        <a href="{% url 'view_quiz' tryout_object.id %}"> Cancel </a>
+    </form>
 
 {% endblock %}
