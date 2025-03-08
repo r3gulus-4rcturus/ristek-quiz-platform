@@ -78,5 +78,16 @@ class UpdateQuiz(View):
 
 # View untuk mendelete tryout yang sudah ada
 class DeleteQuiz(View):
-    def get(self, request):
-        return render(request, 'quizapp/delete_quiz.html')
+    model = Tryout
+    template_url = 'quizapp/delete_quiz.html'
+    success_url = reverse_lazy('home')
+
+    def get(self, request, pk):
+        tryout_object = get_object_or_404(self.model, pk=pk)
+        ctx = {'tryout_object' : tryout_object}
+        return render(request, self.template_url, ctx)
+    
+    def post(self, request, pk):
+        tryout_object = get_object_or_404(self.model, pk=pk)
+        tryout_object.delete()
+        return redirect(self.success_url)

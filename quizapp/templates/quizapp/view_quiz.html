@@ -8,6 +8,8 @@
     <p> Skor Maksimum: {{ tryout_object.maximum_score }} </p>
     <a href="{% url 'update_quiz' tryout_object.id %}" type="button" > Update Tryout </a>
     <br>
+    <a href="{% url 'delete_quiz' tryout_object.id %}" type="button" > Delete Tryout </a>
+    <br><br>
     <a href="{% url 'home'  %}" type="button" > Kembali ke Menu Utama </a>
 
 {% endblock %}
