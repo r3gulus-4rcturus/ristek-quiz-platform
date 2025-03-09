@@ -1,21 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
-<<<<<<< HEAD
 from quizapp.models import *
 from quizapp.forms import *
 from quizapp.filters import TryoutFilter
-=======
-from quizapp.models import Tryout
-from quizapp.forms import MakeTryout
->>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6
 
 # View untuk menampilkan list semua try out yang ada
 class MainView(View):
     def get(self, request):
         # ambil semua object tryout yang ada
         tryout_list = Tryout.objects.all()
-<<<<<<< HEAD
 
         # filter pencarian tryout menggunakan django_filters
         tryout_filter = TryoutFilter(request.GET, queryset=tryout_list)
@@ -23,10 +17,6 @@ class MainView(View):
 
         # pass ke render machine 
         ctx = {'tryout_list': tryout_list_filtered, 'tryout_filter': tryout_filter}
-=======
-        # pass ke render machine 
-        ctx = {'tryout_list': tryout_list}
->>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6
         return render(request, 'quizapp/home.html', ctx)
     
 class AboutView(View):
@@ -62,16 +52,11 @@ class CreateQuiz(View):
 class ViewQuiz(View):
     model = Tryout
     def get(self, request, pk):
-<<<<<<< HEAD
         # ambil object tryout
         tryout_object = get_object_or_404(self.model, pk=pk)
         # ambil daftar question yg ada di dalam tryout tersebut
         question_list = tryout_object.question_set.all()
         ctx = {'tryout_object' : tryout_object, 'question_list' : question_list}
-=======
-        tryout_object = get_object_or_404(self.model, pk=pk)
-        ctx = {'tryout_object' : tryout_object}
->>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6
         return render(request, 'quizapp/view_quiz.html',ctx)
 
 # View untuk mengupdate tryout yang sudah ada
@@ -115,7 +100,6 @@ class DeleteQuiz(View):
         tryout_object = get_object_or_404(self.model, pk=pk)
         tryout_object.delete()
         return redirect(self.success_url)
-<<<<<<< HEAD
 
 # View untuk menambahkan question
 class AddQuestion(View):
@@ -199,5 +183,3 @@ class DeleteQuestion(View):
 
         success_url = reverse_lazy('view_quiz', kwargs={'pk': pk_tryout})
         return redirect(success_url)
-=======
->>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6

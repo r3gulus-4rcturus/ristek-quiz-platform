@@ -37,10 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'django_filters',
-=======
->>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6
     'quizapp'
 ]
 
@@ -126,7 +123,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
 
 
 # to remove 'contains' after date created label on filters
@@ -138,5 +134,3 @@ def FILTERS_VERBOSE_LOOKUPS():
         'contains': '',
     })
     return verbose_lookups
-=======
->>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6
