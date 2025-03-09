@@ -26,8 +26,12 @@ urlpatterns = [
     path('create', views.CreateQuiz.as_view(), name="create_quiz"),
     path('view/<int:pk>', views.ViewQuiz.as_view(), name="view_quiz"),
     path('update/<int:pk>', views.UpdateQuiz.as_view(), name="update_quiz"),
+<<<<<<< HEAD
     path('delete/<int:pk>', views.DeleteQuiz.as_view(), name="delete_quiz"),
     path('view/<int:pk_tryout>/add_question', views.AddQuestion.as_view(), name="add_question"),
     path('view/<int:pk_tryout>/update_question/<int:pk_question>', views.UpdateQuestion.as_view(), name="update_question"),
     path('view/<int:pk_tryout>/delete_question/<int:pk_question>', views.DeleteQuestion.as_view(), name="delete_question"),
+=======
+    path('delete/<int:pk>', views.DeleteQuiz.as_view(), name="delete_quiz")
+>>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6
 ]

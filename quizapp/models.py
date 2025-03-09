@@ -5,6 +5,7 @@ from django.core.validators import MinLengthValidator, MinValueValidator
 class Tryout(models.Model):
     name = models.CharField(
         max_length=30,
+<<<<<<< HEAD
         verbose_name="Nama Tryout",
         validators=[MinLengthValidator(2, "Nama Tryout harus memiliki minimal 2 karakter")]
     )
@@ -48,3 +49,19 @@ class Question(models.Model):
         null=True,
         on_delete=models.CASCADE
     )
+=======
+        help_text="contoh: Tryout UAS DDP2",
+        validators=[MinLengthValidator(2, "Make must be greater than 1 character")]
+    )
+    subject = models.CharField(
+        max_length=30,
+        help_text="contoh: DDP2",
+        validators=[MinLengthValidator(2, "Make must be greater than 1 character")]
+    )
+    maximum_score = models.IntegerField(
+        validators=[MinValueValidator(100, message="Minimal nilainya 100 lah pak")]
+    )
+
+# Question Models
+# class Questions
+>>>>>>> d4edcb778130b88afc19c4edaaeb436b985c8af6
