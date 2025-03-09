@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <h2> Hapus Try Out </h2>
+
+    <p> Apakah kamu benar-benar ingin menghapus try out {{ tryout_object.name }} ? </p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="Submit" value="Iya, Hapus">
+        <a href="{% url 'view_quiz' tryout_object.id %}"> Tidak </a>
+    </form>
+
+{% endblock %}

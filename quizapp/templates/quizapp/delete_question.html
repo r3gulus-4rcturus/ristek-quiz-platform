@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <h2> Hapus Pertanyaan </h2>
+
+    <p> Apakah kamu benar-benar ingin menghapus soal ini? </p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="Submit" value="Iya, Hapus">
+        <a href="{% url 'view_quiz' pk_tryout %}"> Tidak </a>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="icon"  href="https://yt3.googleusercontent.com/FPm5gMyXns6WSP4kY3lpGVwFb1BQKtpo5X1-BUt6NmYqX7pseMiqBhvGT3-1S1SUbs1n4eV4=s900-c-k-c0x00ffffff-no-rj">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            /* line-height: 1.6; */
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #2e0051;
+            color: #000000;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Main Content Styles */
+        .content {
+            padding: 2rem;
+            min-height: 80vh; /* Ensure footer is at the bottom */
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}" style="text-decoration: none; padding-bottom: 20px;">RISTEK Quiz App</a></div>
+        <div>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Made by <a href="{% url 'contact' %}">Muhammad Lanang Zalkifla Harits</a></p>
+    </div>
+</body>
+</html>

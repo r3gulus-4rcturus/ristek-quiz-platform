@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <h1>Selamat Datang di Ristek Quiz App!</h1>
+    <div style="border: 5px solid black; padding: 20px; margin: 40px;">
+        <form method="get">
+            {{ tryout_filter.form }}
+            <button type="submit"> Search </button>
+        </form>
+    </div>
+
+    {% if tryout_list %}
+        <h3> List tryout yang ada: </h3>
+        <ul>
+            {% for tryout in tryout_list %}
+                <li> <a href="{% url 'view_quiz' tryout.id %}">{{tryout.name}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3> Tidak ada tryout yang tersedia. </h3>
+    {% endif %}
+
+    <a href="{% url 'create_quiz' %}" type="button" > Buat Tryout Baru </a>
+    
+
+{% endblock %}
