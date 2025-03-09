@@ -1,28 +1,43 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 
     <h1>Selamat Datang di Ristek Quiz App!</h1>
-    <div style="border: 5px solid black; padding: 20px; margin: 40px;">
+    <div class="container-md" style="border: 5px solid black; padding: 20px; margin: 40px;">
         <form method="get">
             {{ tryout_filter.form }}
-            <button type="submit"> Search </button>
+            <button type="submit" type="button" class="btn btn-primary"> Cari Tryout </button>
         </form>
     </div>
 
     {% if tryout_list %}
-        <h3> List tryout yang ada: </h3>
-        <ul>
+        <h5> Hasil pencarian Tryout: </h5>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col" class="table-dark">No</th>
+                <th scope="col" class="table-dark">Nama Tryout</th>
+                <th scope="col" class="table-dark">Topik</th>
+                <th scope="col" class="table-dark">Pembuat Soal</th>
+            </thead>
+            <tbody>
             {% for tryout in tryout_list %}
-                <li> <a href="{% url 'view_quiz' tryout.id %}">{{tryout.name}}</a></li>
+                <tr>       
+                    <th scope="row"> {{ forloop.counter }} </th>
+                    <td> <a href="{% url 'view_quiz' tryout.id %}" style="text-decoration:none; color:inherit;"> {{tryout.name}} </a> </td>
+                    <td> <a href="{% url 'view_quiz' tryout.id %}" style="text-decoration:none; color:inherit;"> {{tryout.subject}} </a> </td>
+                    <td> <a href="{% url 'view_quiz' tryout.id %}" style="text-decoration:none; color:inherit;"> {{tryout.quiz_author}} </a></td>
+                </tr>
             {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     {% else %}
         <h3> Tidak ada tryout yang tersedia. </h3>
     {% endif %}
-
-    <a href="{% url 'create_quiz' %}" type="button" > Buat Tryout Baru </a>
+    
+        <div class="d-grid gap-2  mx-auto">
+            <a href="{% url 'create_quiz' %}" type="button" class="btn btn-outline-dark"> Buat Tryout Baru </a>
+      </div>
+    
     
 
 {% endblock %}

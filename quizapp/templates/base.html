@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="icon"  href="https://yt3.googleusercontent.com/FPm5gMyXns6WSP4kY3lpGVwFb1BQKtpo5X1-BUt6NmYqX7pseMiqBhvGT3-1S1SUbs1n4eV4=s900-c-k-c0x00ffffff-no-rj">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -15,16 +16,16 @@
 
         body {
             font-family: Arial, sans-serif;
-            /* line-height: 1.6; */
+            line-height: 1.6;
             background-color: #f4f4f4;
             color: #333;
         }
 
         /* Navbar Styles */
         .navbar {
-            background-color: #2e0051;
+            background-color: #630ea4;
             color: #000000;
-            padding: 1rem;
+            padding: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,7 +38,7 @@
         }
 
         .navbar a:hover {
-            text-decoration: underline;
+            background-color: rgb(12, 0, 57);
         }
 
         .navbar .logo {
@@ -66,16 +67,13 @@
             color: #fff;
             text-decoration: none;
         }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
+            <img src="https://yt3.googleusercontent.com/FPm5gMyXns6WSP4kY3lpGVwFb1BQKtpo5X1-BUt6NmYqX7pseMiqBhvGT3-1S1SUbs1n4eV4=s900-c-k-c0x00ffffff-no-rj" height="70">
             <a href="{% url 'home' %}" style="text-decoration: none; padding-bottom: 20px;">RISTEK Quiz App</a></div>
         <div>
             <a href="{% url 'home' %}">Home</a>
