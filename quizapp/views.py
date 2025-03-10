@@ -183,3 +183,8 @@ class DeleteQuestion(View):
 
         success_url = reverse_lazy('view_quiz', kwargs={'pk': pk_tryout})
         return redirect(success_url)
+    
+# View untuk mengerjakan try out
+class StartQuiz(View):
+    def get(self, request, pk_tryout):
+        return render(request, 'quizapp/start_quiz.html')

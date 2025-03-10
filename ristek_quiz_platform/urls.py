@@ -30,4 +30,5 @@ urlpatterns = [
     path('view/<int:pk_tryout>/add_question', views.AddQuestion.as_view(), name="add_question"),
     path('view/<int:pk_tryout>/update_question/<int:pk_question>', views.UpdateQuestion.as_view(), name="update_question"),
     path('view/<int:pk_tryout>/delete_question/<int:pk_question>', views.DeleteQuestion.as_view(), name="delete_question"),
+    path('start_quiz/<int:pk_tryout>', views.StartQuiz.as_view(), name="start_quiz"),
 ]
