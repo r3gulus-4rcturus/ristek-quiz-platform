@@ -8,8 +8,8 @@ Berikut langkah-langkah untuk menjalankan project pada environment lokal:
 
 1. **Clone repository**:
    ```bash
-   git clone https://github.com/yourusername/quiz-platform.git
-   cd quiz-platform
+   git clone https://github.com/r3gulus-4rcturus/ristek-quiz-platform.git
+   cd ristek-quiz-platform
 2. **Install dependency**:
    ```bash
    pip install -r "requirements.txt"
