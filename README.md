@@ -24,6 +24,6 @@ Berikut langkah-langkah untuk menjalankan project pada environment lokal:
    Akses dengan alamat: http://127.0.0.1:8000.
 
 ## Tech Stack yang digunakan
-**Backend** : Django
+**Backend** : Django<br/>
 **Frontend** : HTML, CSS, Bootstrap 
 
