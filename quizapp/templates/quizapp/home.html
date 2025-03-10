@@ -18,14 +18,18 @@
                 <th scope="col" class="table-dark">Nama Tryout</th>
                 <th scope="col" class="table-dark">Topik</th>
                 <th scope="col" class="table-dark">Pembuat Soal</th>
+                <th scope="col" class="table-dark" style="width: 10%;"></th>
+                <th scope="col" class="table-dark" style="width: 15%;"></th>
             </thead>
             <tbody>
             {% for tryout in tryout_list %}
                 <tr>       
                     <th scope="row"> {{ forloop.counter }} </th>
-                    <td> <a href="{% url 'view_quiz' tryout.id %}" style="text-decoration:none; color:inherit;"> {{tryout.name}} </a> </td>
-                    <td> <a href="{% url 'view_quiz' tryout.id %}" style="text-decoration:none; color:inherit;"> {{tryout.subject}} </a> </td>
-                    <td> <a href="{% url 'view_quiz' tryout.id %}" style="text-decoration:none; color:inherit;"> {{tryout.quiz_author}} </a></td>
+                    <td> {{tryout.name}} </td>
+                    <td> {{tryout.subject}} </td>
+                    <td> {{tryout.quiz_author}}</td>
+                    <td> <a href="{% url 'view_quiz' tryout.id %}" type="button" class="btn btn-success"> Edit </a> </td>
+                    <td> <a href="{% url 'start_quiz' tryout.id %}" type="button" class="btn btn-primary"> Mulai Pengerjaan </a></td>
                 </tr>
             {% endfor %}
             </tbody>
