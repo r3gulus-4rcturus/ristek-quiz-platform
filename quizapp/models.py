@@ -35,13 +35,23 @@ class Tryout(models.Model):
 
 # Question Models
 class Question(models.Model):
+
+    ANSWER_CHOICES = (
+        ("", ""),
+        ("Benar", "Benar"),
+        ("Salah", "Salah")
+    )
+
     question_text = models.CharField(
         max_length=100,
         verbose_name="Pertanyaan",
         validators=[MinLengthValidator(2, "Pertanyaan harus memiliki minimal 2 karakter")]
     )
-    answer = models.BooleanField(
-        verbose_name="Jawaban"
+    answer = models.CharField(
+        max_length=10,
+        verbose_name="Jawaban",
+        choices=ANSWER_CHOICES,
+        blank=False
     )
     tryout = models.ForeignKey(
         to=Tryout, 

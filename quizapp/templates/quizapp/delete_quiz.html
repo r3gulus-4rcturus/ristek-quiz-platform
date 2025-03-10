@@ -9,8 +9,8 @@
 
     <form action="" method="post">
         {% csrf_token %}
-        <input type="Submit" value="Iya, Hapus">
-        <a href="{% url 'view_quiz' tryout_object.id %}"> Tidak </a>
+        <input type="Submit" value="Iya, Hapus" class="btn btn-danger" style="margin: 10px;">
+        <a href="{% url 'view_quiz' tryout_object.id %}" class="btn btn-success" role="button" style="margin: 10px;"> Tidak </a>
     </form>
 
 {% endblock %}

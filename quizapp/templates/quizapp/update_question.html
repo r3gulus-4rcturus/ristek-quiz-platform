@@ -8,8 +8,8 @@
         <table>
             {{ form.as_table }}
         </table>
-        <input type="submit" value="Submit">
-        <a href="{% url 'view_quiz' pk_tryout %}"> Cancel </a>
+        <input type="submit" value="Submit" class="btn btn-success" style="margin: 20px;">
+        <a href="{% url 'view_quiz' pk_tryout %}" class="btn btn-danger" role="button" style="margin: 20px;"> Cancel </a>
     </form>
 
 {% endblock %}

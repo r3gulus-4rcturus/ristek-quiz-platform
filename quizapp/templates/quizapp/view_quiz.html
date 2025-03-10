@@ -3,37 +3,50 @@
 
 {% block content %}
 
-    <!-- Tampilkan metadata dari tryout -->
-    <p> Nama Tryout: {{ tryout_object.name }} </p>
-    <p> Topik: {{ tryout_object.subject }} </p>
-    <p> Skor Maksimum: {{ tryout_object.maximum_score }} </p>
-    <p> Pembuat Soal: {{ tryout_object.quiz_author }} </p>
-    <p> Tanggal Pembuatan: {{ tryout_object.date_created }} </p>
-    <p> Jumlah Soal: {{ tryout_object.question_count }} </p>
-    <!-- Tampilkan opsi edit metadata -->
-    <a href="{% url 'update_quiz' tryout_object.id %}" type="button" > Edit Metadata Tryout </a>
-    <br>
+    <div class="container" >
+        <!-- Tampilkan metadata dari tryout -->
+        <div class="metadata_tryout">
+            <h2 style="font-weight: bold;"> Metadata Tryout</h2>
+            <p> Nama Tryout: {{ tryout_object.name }} </p>
+            <p> Topik: {{ tryout_object.subject }} </p>
+            <p> Skor Maksimum: {{ tryout_object.maximum_score }} </p>
+            <p> Pembuat Soal: {{ tryout_object.quiz_author }} </p>
+            <p> Tanggal Pembuatan: {{ tryout_object.date_created }} </p>
+            <p> Jumlah Soal: {{ tryout_object.question_count }} </p>
+            <!-- Tampilkan opsi edit metadata -->
+            <a href="{% url 'update_quiz' tryout_object.id %}" type="button" class="btn btn-success"> Edit Metadata </a>
+            <a href="{% url 'delete_quiz' tryout_object.id %}" type="button" class="btn btn-danger"> Hapus Tryout </a>
+            <br>
+        </div>
 
-    <!-- Tampilkan pertanyaan-pertanyaan tryout-->
-    {% if question_list %}
-        <ol>
-            {% for question in question_list %}
-                <li> 
-                    {{ question.question_text }}  
+        <!-- Tampilkan pertanyaan-pertanyaan tryout-->
+        <div class="questions">
+            <h2 style="font-weight: bold;"> Soal </h2>
+            {% if question_list %}
+                <ol>
+                    {% for question in question_list %}
+                        <li> 
+                            {{ question.question_text }}
+                            <span style="float: right">
+                            <a href="{% url 'update_question' pk_tryout=tryout_object.id pk_question=question.id %}" type="button" class="btn btn-success"> Edit </a> 
+                            <a href="{% url 'delete_question' pk_tryout=tryout_object.id pk_question=question.id %}" type="button"  class="btn btn-danger"> Hapus </a>
+                            </span>
+                        </li>    
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <p> Belum ada soal yang dibuat. </p>
+            {% endif %}
+            <!-- Tampilkan tombol untuk menambah soal -->
+            <div class="d-grid gap-2  mx-auto"style="margin-top: 20px">
+                <a href="{% url 'add_question' pk_tryout=tryout_object.id %}" type="button" class="btn btn-outline-dark"> Tambah Soal </a>
+            </div>
+        </div>
+    </div>
 
-                    <a href="{% url 'update_question' pk_tryout=tryout_object.id pk_question=question.id %}" type="button" > Edit </a> --------
-                    <a href="{% url 'delete_question' pk_tryout=tryout_object.id pk_question=question.id %}" type="button" > Hapus </a>
-                </li>    
-            {% endfor %}
-        </ol>
-    {% else %}
-        <p> Belum ada pertanyaan yang dibuat. </p>
-    {% endif %}
-    <!-- Tampilkan tombol untuk menambah pertanyaan -->
-    <a href="{% url 'add_question' pk_tryout=tryout_object.id %}" type="button" > Tambah Pertanyaan </a>
+    <div class="d-grid gap-2 col-10 mx-auto" style="margin: 30px 20px;">
+        <a href="{% url 'home'  %}" type="button" class="btn btn-dark"> Kembali ke Menu Utama </a>
+    </div>
 
-    <a href="{% url 'delete_quiz' tryout_object.id %}" type="button" > Delete Tryout </a>
-    <br><br>
-    <a href="{% url 'home'  %}" type="button" > Kembali ke Menu Utama </a>
 
 {% endblock %}
